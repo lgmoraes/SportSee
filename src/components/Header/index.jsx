@@ -3,9 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 function Header() {
   return (
     <header className="header">
-      <div className="logo"></div>
+      <Link to="/" className="header__logo"></Link>
       <nav>
-        <Link to="/">[Logo]</Link>
         <NavLink
           className={({ isActive }) => (isActive ? 'active' : undefined)}
           to="/"
