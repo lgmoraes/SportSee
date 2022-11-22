@@ -1,0 +1,39 @@
+@use '../utils/' as *;
+
+.Error404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  h1 {
+    line-height: 250px;
+    margin: 0;
+
+    font-weight: 700;
+    font-size: 288px;
+  }
+  h2 {
+    margin: 0;
+    line-height: 140%;
+
+    text-align: center;
+    font-style: 36px;
+  }
+  a {
+    font-size: 18px;
+    text-decoration: underline;
+  }
+
+  @include media-breakpoint-down(md) {
+    h1 {
+      font-size: 96px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    a {
+      font-size: 14px;
+    }
+  }
+}

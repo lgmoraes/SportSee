@@ -1,0 +1,33 @@
+$color-primary: #020203;
+$color-secondary: #ff6060;
+$color-tertiary: #282D30;
+$color-accent: #74798C;
+$color-background: white;
+
+$font-primary: 'Roboto', sans-serif;
+
+$margin: 30px;
+
+$border-radius: 6px;
+
+$animation-duration: 0.3s;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 960px,
+  xl: 1440px,
+);
+
+/* COMPONENTS */
+
+$card-size: 340px;
+$card-size-mobile: 255px;
+
+$header-height: 91px;
+$header-padding: 40px;
+
+$logo-width: 210px;
+$logo-height: 68px;
+
+$sidebar-width: 117px;

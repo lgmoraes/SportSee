@@ -1,0 +1,18 @@
+@use '../utils/' as *;
+
+.sidebar {
+  width: $sidebar-width;
+  height: 100%;
+
+  color: white;
+  background-color: $color-primary;
+
+  &__copyright {
+    line-height: $sidebar-width;
+    margin: 0;
+
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    white-space: nowrap;
+  }  
+}

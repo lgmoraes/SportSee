@@ -1,0 +1,20 @@
+@use '../utils/' as *;
+
+.logo {
+  &--white {
+    background: center no-repeat url('../../assets/logo-white.svg');
+  }
+
+  width: $logo-width;
+  height: $logo-height;
+
+  background: left no-repeat url('../../assets/logo.svg');
+  background-size: contain;
+
+  flex-shrink: 0;
+
+  @include media-breakpoint-down(md) {
+    width: 155px;
+    height: 48px;
+  }
+}
