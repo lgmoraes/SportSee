@@ -7,12 +7,53 @@
   color: white;
   background-color: $color-primary;
 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 215px;
+  }
+  &__btn {
+    width: 64px;
+    height: 64px;
+
+    border-radius: $border-radius;
+    background: white center no-repeat;
+    cursor: pointer;
+  }
+  &__btnMeditation {
+    background-image: url(../../assets/meditation.svg);
+  }
+  &__btnSwim {
+    background-image: url(../../assets/swim.svg);
+  }
+  &__btnBike {
+    background-image: url(../../assets/bike.svg);
+  }
+  &__btnDumbbell {
+    background-image: url(../../assets/dumbbell.svg);
+  }
+
   &__copyright {
     line-height: $sidebar-width;
     margin: 0;
 
-    transform: rotate(90deg);
-    transform-origin: left bottom;
+    font-size: 12px;
+    transform: rotate(-90deg);
     white-space: nowrap;
-  }  
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+  }
 }
