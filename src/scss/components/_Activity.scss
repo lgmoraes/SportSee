@@ -3,8 +3,39 @@
 .activity {
   font-size: 14px;
 
+  display: flex;
+  gap: $activity-flexGap;
+
   &__graphs {
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  &__graphsDown {
+    margin-top: $activity-flexGap;
+
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    gap: $activity-flexGap;
+
+    div {
+      height: $activity-graphHeight;
+
+      border-radius: $border-radius;
+      background-color: red;
+
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__expenses {
+    width: 258px;
+
+    border-radius: $border-radius;
+    background-color: red;
   }
   &__tooltip {
     line-height: 24px;

@@ -6,6 +6,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from 'recharts'
 
 import activity from '../../api/activity.json'
@@ -29,10 +30,12 @@ function Activity() {
   return (
     <div className="activity">
       <div className="activity__graphs">
-        <div className="activity__graphsUp">
+        <ResponsiveContainer
+          className="activity__graphsUp"
+          width="100%"
+          height={200}
+        >
           <BarChart
-            width={500}
-            height={300}
             data={data}
             barSize={7}
             margin={{
@@ -60,10 +63,16 @@ function Activity() {
             <Bar dataKey="kilogram" fill="#282D30" />
             <Bar dataKey="calories" fill="#E60000" />
           </BarChart>
+        </ResponsiveContainer>
+        <div className="activity__graphsDown">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
         </div>
-        <div className="activity__graphsDown"></div>
       </div>
-      <div className="activity__expenses"></div>
+      <div className="activity__expenses">
+        <div>expenses</div>
+      </div>
     </div>
   )
 }

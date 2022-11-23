@@ -3,4 +3,10 @@
 .home {
   display: flex;
   flex-grow: 1;
+
+  &__content {
+    padding: 0 100px;
+    padding-top: 50px;
+    flex-grow: 1;
+  }
 }
