@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Sidebar from '../../components/Sidebar'
+import Activity from '../../components/Activity'
 
 function Home() {
   useEffect(() => {
@@ -9,8 +10,14 @@ function Home() {
   return (
     <div className="home">
       <Sidebar />
-      <main home__content>
-        <h1>Bonjour</h1>
+      <main className="home__content">
+        <div className="home__title">
+          <h1>
+            Bonjour <span className="home__name">Thomas</span>
+          </h1>
+          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        </div>
+        <Activity />
       </main>
     </div>
   )

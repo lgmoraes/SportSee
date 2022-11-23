@@ -7,7 +7,7 @@ function Sidebar() {
         <div className="sidebar__btn sidebar__btnBike"></div>
         <div className="sidebar__btn sidebar__btnDumbbell"></div>
       </div>
-      <div class="sidebar__copyright">Copyright, SportSee 2020</div>
+      <div className="sidebar__copyright">Copyright, SportSee 2020</div>
     </div>
   )
 }
