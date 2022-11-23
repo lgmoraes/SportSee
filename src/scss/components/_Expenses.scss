@@ -1,0 +1,60 @@
+@use '../utils/' as *;
+
+.expenses {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &__card {
+    width: 258px;
+    height: 124px;
+    padding-left: 32px;
+
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  &__card-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: $border-radius;
+    background: grey center no-repeat;
+  }
+  &__calories &__card-icon {
+    background-color: rgba($color: #FF0000, $alpha: 0.07);
+    background-image: url(../../assets/flame.svg);
+  }
+  &__proteines &__card-icon {
+    background-color: rgba($color: #4AB8FF, $alpha: 0.1);
+    background-image: url(../../assets/meat.svg);
+  }
+  &__glucides &__card-icon {
+    background-color: rgba($color: #FDCC0C, $alpha: 0.1);
+    background-image: url(../../assets/apple.svg);
+  }
+  &__lipides &__card-icon {
+    background-color: rgba($color: #FD5181, $alpha: 0.1);
+    background-image: url(../../assets/cheeseburger.svg);
+  }
+  &__card-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  &__card-amount {
+    line-height: 24px;
+    margin: 0;
+
+    color: #282d30;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__card-unit {
+    line-height: 24px;
+    margin: 0;
+
+    color: #74798c;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

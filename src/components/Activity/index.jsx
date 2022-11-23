@@ -10,6 +10,7 @@ import {
 } from 'recharts'
 
 import activity from '../../api/activity.json'
+import Expenses from '../Expenses'
 
 const data = activity.data.sessions
 
@@ -28,7 +29,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 function Activity() {
   return (
-    <div className="activity">
+    <section className="activity">
       <div className="activity__graphs">
         <ResponsiveContainer
           className="activity__graphsUp"
@@ -70,10 +71,8 @@ function Activity() {
           <div>3</div>
         </div>
       </div>
-      <div className="activity__expenses">
-        <div>expenses</div>
-      </div>
-    </div>
+      <Expenses data="" />
+    </section>
   )
 }
 
