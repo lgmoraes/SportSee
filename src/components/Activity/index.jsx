@@ -6,13 +6,14 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  Line,
+  LineChart,
   ResponsiveContainer,
 } from 'recharts'
-
-import activity from '../../api/activity.json'
 import Expenses from '../Expenses'
 
-const data = activity.data.sessions
+import activity from '../../api/activity.json'
+import averageSession from '../../api/average-sessions.json'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -37,7 +38,7 @@ function Activity() {
           height={200}
         >
           <BarChart
-            data={data}
+            data={activity.data.sessions}
             barSize={7}
             margin={{
               top: 5,
@@ -66,7 +67,32 @@ function Activity() {
           </BarChart>
         </ResponsiveContainer>
         <div className="activity__graphsDown">
-          <div>1</div>
+          <div className="activity__averageSessions">
+            <ResponsiveContainer
+              className="activity__graphsUp"
+              width="100%"
+              height={260}
+            >
+              <LineChart
+                data={averageSession.data.sessions}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <XAxis
+                  tickLine={0}
+                  axisLine={false}
+                  tickFormatter={(n) => ['L', 'M', 'M', 'J', 'V', 'S', 'D'][n]}
+                />
+                <Tooltip />
+                <Line
+                  type="monotone"
+                  dataKey="sessionLength"
+                  stroke="white"
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
           <div>2</div>
           <div>3</div>
         </div>
