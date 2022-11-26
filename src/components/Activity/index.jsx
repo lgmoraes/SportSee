@@ -34,7 +34,7 @@ function Activity() {
       <div className="activity__graphs">
         <ResponsiveContainer
           className="activity__graphsUp"
-          width="100%"
+          width="99%"
           height={200}
         >
           <BarChart
@@ -70,7 +70,7 @@ function Activity() {
           <div className="activity__averageSessions">
             <ResponsiveContainer
               className="activity__graphsUp"
-              width="100%"
+              width="99%"
               height={260}
             >
               <LineChart
