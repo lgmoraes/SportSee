@@ -62,8 +62,8 @@ function Activity() {
               align="right"
               verticalAlign="top"
             />
-            <Bar dataKey="kilogram" fill="#282D30" />
-            <Bar dataKey="calories" fill="#E60000" />
+            <Bar dataKey="kilogram" fill="#282D30" radius={[3, 3, 0, 0]} />
+            <Bar dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
         <div className="activity__graphsDown">
