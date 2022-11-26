@@ -55,7 +55,10 @@ function Activity() {
               axisLine={false}
               orientation="right"
             />
-            <Tooltip content={CustomTooltip} />
+            <Tooltip
+              content={CustomTooltip}
+              wrapperStyle={{ outline: 'none' }}
+            />
             <Legend
               iconType="circle"
               iconSize={10}
@@ -82,7 +85,7 @@ function Activity() {
                   axisLine={false}
                   tickFormatter={(n) => ['L', 'M', 'M', 'J', 'V', 'S', 'D'][n]}
                 />
-                <Tooltip />
+                <Tooltip wrapperStyle={{ outline: 'none' }} />
                 <Line
                   type="monotone"
                   dataKey="sessionLength"
