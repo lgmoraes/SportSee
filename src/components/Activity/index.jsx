@@ -8,19 +8,58 @@ import {
   Legend,
   Line,
   LineChart,
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts'
 import Expenses from '../Expenses'
 
 import activity from '../../api/activity.json'
 import averageSession from '../../api/average-sessions.json'
+import performance from '../../api/performance.json'
 
-const CustomTooltip = ({ active, payload, label }) => {
+function getPerformanceData() {
+  const data = []
+  const cat = Object.values(performance.data.kind).map((c) => {
+    if (c === 'cardio') return 'Cardio'
+    else if (c === 'energy') return 'Energie'
+    else if (c === 'endurance') return 'Endurance'
+    else if (c === 'strength') return 'Force'
+    else if (c === 'speed') return 'Vitesse'
+    else if (c === 'intensity') return 'Intensité'
+    return c
+  })
+
+  cat.forEach((kind, index) => {
+    data.unshift({
+      kind,
+      value: performance.data.data[index].value,
+    })
+  })
+
+  return data
+}
+
+const BarChartTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="activity__tooltip">
+      <div className="activity__barChartTooltip">
         <p>{`${payload[0].value}kg`}</p>
         <p>{`${payload[1].value}Kcal`}</p>
+      </div>
+    )
+  }
+
+  return null
+}
+
+const LineChartTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="activity__performanceTooltip">
+        <p>{`${payload[0].value} min`}</p>
       </div>
     )
   }
@@ -56,7 +95,7 @@ function Activity() {
               orientation="right"
             />
             <Tooltip
-              content={CustomTooltip}
+              content={BarChartTooltip}
               wrapperStyle={{ outline: 'none' }}
             />
             <Legend
@@ -81,13 +120,17 @@ function Activity() {
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <XAxis
+                  tick={{ fill: 'rgba(255,255,255,0.5)', fontWeight: 'bold' }}
                   tickLine={0}
                   axisLine={false}
                   tickFormatter={(n) => ['L', 'M', 'M', 'J', 'V', 'S', 'D'][n]}
                 />
-                <Tooltip wrapperStyle={{ outline: 'none' }} />
+                <Tooltip
+                  content={LineChartTooltip}
+                  wrapperStyle={{ outline: 'none' }}
+                />
                 <Line
-                  type="monotone"
+                  type="natural"
                   dataKey="sessionLength"
                   stroke="white"
                   strokeWidth={2}
@@ -96,7 +139,32 @@ function Activity() {
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <div>2</div>
+          <div className="activity__performance">
+            <ResponsiveContainer
+              className="activity__graphsUp"
+              width="99%"
+              height={200}
+            >
+              <RadarChart
+                cx={'50%'}
+                cy={'50%'}
+                outerRadius={'70%'}
+                data={getPerformanceData()}
+              >
+                <PolarGrid strokeWidth={2} radialLines={false} />
+                <PolarAngleAxis
+                  dataKey="kind"
+                  tickSize={15}
+                  tick={{
+                    fill: 'white',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                  }}
+                />
+                <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
           <div>3</div>
         </div>
       </div>
