@@ -12,6 +12,8 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
+  RadialBarChart,
+  RadialBar,
   ResponsiveContainer,
 } from 'recharts'
 import Expenses from '../Expenses'
@@ -19,6 +21,7 @@ import Expenses from '../Expenses'
 import activity from '../../api/activity.json'
 import averageSession from '../../api/average-sessions.json'
 import performance from '../../api/performance.json'
+import user from '../../api/user.json'
 
 function getPerformanceData() {
   const data = []
@@ -110,11 +113,7 @@ function Activity() {
         </ResponsiveContainer>
         <div className="activity__graphsDown">
           <div className="activity__averageSessions">
-            <ResponsiveContainer
-              className="activity__graphsUp"
-              width="99%"
-              height={260}
-            >
+            <ResponsiveContainer width="99%" height={260}>
               <LineChart
                 data={averageSession.data.sessions}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -123,7 +122,7 @@ function Activity() {
                   tick={{ fill: 'rgba(255,255,255,0.5)', fontWeight: 'bold' }}
                   tickLine={0}
                   axisLine={false}
-                  tickFormatter={(n) => ['L', 'M', 'M', 'J', 'V', 'S', 'D'][n]}
+                  dataKey="day"
                 />
                 <Tooltip
                   content={LineChartTooltip}
@@ -140,11 +139,7 @@ function Activity() {
             </ResponsiveContainer>
           </div>
           <div className="activity__performance">
-            <ResponsiveContainer
-              className="activity__graphsUp"
-              width="99%"
-              height={200}
-            >
+            <ResponsiveContainer width="99%" height={200}>
               <RadarChart
                 cx={'50%'}
                 cy={'50%'}
@@ -165,7 +160,43 @@ function Activity() {
               </RadarChart>
             </ResponsiveContainer>
           </div>
-          <div>3</div>
+          <div className="activity__objectif">
+            <ResponsiveContainer width="99%" height={260}>
+              <RadialBarChart
+                width={730}
+                height={250}
+                innerRadius="80%"
+                data={[{ name: 'user', value: user.data.score }]}
+                startAngle={-270}
+                endAngle={90}
+              >
+                <PolarAngleAxis
+                  type="number"
+                  domain={[0, 1]}
+                  angleAxisId={0}
+                  tick={false}
+                />
+                <RadialBar
+                  angleAxisId={0}
+                  barSize={10}
+                  cornerRadius={30 / 2}
+                  fill="#FF0000"
+                  minAngle={15}
+                  dataKey={'value'}
+                />
+              </RadialBarChart>
+            </ResponsiveContainer>
+            <p className="activity__objectif-score">
+              <span className="activity__objectif-score-percent">
+                {user.data.score * 100}%
+              </span>
+              <br />
+              de votre
+              <br />
+              objectif
+            </p>
+            <p className="activity__objectif-title">Score</p>
+          </div>
         </div>
       </div>
       <Expenses data="" />
