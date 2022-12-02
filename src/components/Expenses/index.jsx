@@ -1,4 +1,4 @@
-function Expenses() {
+function Expenses({ data }) {
   return (
     <section className="expenses">
       <div className="expenses__card expenses__calories">
