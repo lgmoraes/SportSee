@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import {
   BarChart,
   Bar,
@@ -10,14 +11,22 @@ import {
 } from 'recharts'
 
 function ChartActivity({ data }) {
-  return (
+  const [sessions, setSessions] = useState(null)
+
+  useEffect(() => {
+    data.then((res) => {
+      setSessions(res)
+    })
+  })
+
+  return sessions === null ? null : (
     <ResponsiveContainer
       className="activity__graphsUp"
       width="99%"
       height={200}
     >
       <BarChart
-        data={data.sessions}
+        data={sessions}
         barSize={7}
         margin={{
           top: 5,
@@ -27,7 +36,7 @@ function ChartActivity({ data }) {
         }}
       >
         <CartesianGrid vertical={false} strokeDasharray="3 3" />
-        <XAxis tickSize={20} tickLine={0} />
+        <XAxis tickSize={20} tickLine={0} dataKey="day" />
         <YAxis
           tickSize={20}
           tickLine={0}

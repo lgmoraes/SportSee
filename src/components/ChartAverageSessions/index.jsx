@@ -1,10 +1,19 @@
+import { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 function ChartAverageSessions({ data }) {
-  return (
+  const [sessions, setSessions] = useState(null)
+
+  useEffect(() => {
+    data.then((res) => {
+      setSessions(res)
+    })
+  })
+
+  return sessions === null ? null : (
     <ResponsiveContainer width="99%" height={260}>
       <LineChart
-        data={data.data.sessions}
+        data={sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
         <XAxis

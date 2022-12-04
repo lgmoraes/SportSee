@@ -9,4 +9,7 @@
     padding-top: 50px;
     flex-grow: 1;
   }
+  &__name {
+    color: $color-secondary;
+  }
 }

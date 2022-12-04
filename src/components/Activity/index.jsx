@@ -4,50 +4,26 @@ import ChartPerformance from '../ChartPerformance'
 import ChartUser from '../ChartUser'
 import Expenses from '../Expenses'
 
-import activity from '../../api/mocks/activity.json'
-import averageSessions from '../../api/mocks/average-sessions.json'
-import performance from '../../api/mocks/performance.json'
-import user from '../../api/mocks/user.json'
-
-function getPerformanceData() {
-  const data = []
-  const cat = Object.values(performance.data.kind).map((c) => {
-    if (c === 'cardio') return 'Cardio'
-    else if (c === 'energy') return 'Energie'
-    else if (c === 'endurance') return 'Endurance'
-    else if (c === 'strength') return 'Force'
-    else if (c === 'speed') return 'Vitesse'
-    else if (c === 'intensity') return 'Intensité'
-    return c
-  })
-
-  cat.forEach((kind, index) => {
-    data.unshift({
-      kind,
-      value: performance.data.data[index].value,
-    })
-  })
-  return data
-}
+import api from '../../api/Api'
 
 function Activity() {
   return (
     <section className="activity">
       <div className="activity__graphs">
-        <ChartActivity data={activity.data} />
+        <ChartActivity data={api.getActivity()} />
         <div className="activity__graphsDown">
           <div className="activity__averageSessions">
-            <ChartAverageSessions data={averageSessions} />
+            <ChartAverageSessions data={api.getAverageSessions()} />
           </div>
           <div className="activity__performance">
-            <ChartPerformance data={getPerformanceData()} />
+            <ChartPerformance data={api.getPerformance()} />
           </div>
           <div className="activity__objectif">
-            <ChartUser data={user} />
+            <ChartUser data={api.getScore()} />
           </div>
         </div>
       </div>
-      <Expenses data={user} />
+      <Expenses data={api.getExpenses()} />
     </section>
   )
 }

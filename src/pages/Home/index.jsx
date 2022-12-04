@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import Sidebar from '../../components/Sidebar'
+import HomeTitle from '../../components/HomeTitle'
 import Activity from '../../components/Activity'
+
+import api from '../../api/Api'
 
 function Home() {
   useEffect(() => {
@@ -11,12 +14,7 @@ function Home() {
     <div className="home">
       <Sidebar />
       <main className="home__content">
-        <div className="home__title">
-          <h1>
-            Bonjour <span className="home__name">Thomas</span>
-          </h1>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-        </div>
+        <HomeTitle data={api.getUser()} />
         <Activity />
       </main>
     </div>

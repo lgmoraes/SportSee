@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import {
   ResponsiveContainer,
   RadarChart,
@@ -7,9 +8,17 @@ import {
 } from 'recharts'
 
 function ChartPerformance({ data }) {
-  return (
+  const [performances, setPerformances] = useState(null)
+
+  useEffect(() => {
+    data.then((res) => {
+      setPerformances(res)
+    })
+  })
+
+  return performances === null ? null : (
     <ResponsiveContainer width="99%" height={200}>
-      <RadarChart cx={'50%'} cy={'50%'} outerRadius={'70%'} data={data}>
+      <RadarChart data={performances} cx={'50%'} cy={'50%'} outerRadius={'70%'}>
         <PolarGrid strokeWidth={2} radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"

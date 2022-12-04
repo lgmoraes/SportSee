@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   ResponsiveContainer,
   RadialBarChart,
@@ -7,20 +7,28 @@ import {
 } from 'recharts'
 
 function ChartUser({ data }) {
-  return (
+  const [score, setScore] = useState(null)
+
+  useEffect(() => {
+    data.then((res) => {
+      setScore(res)
+    })
+  })
+
+  return score === null ? null : (
     <React.Fragment>
       <ResponsiveContainer width="99%" height={260}>
         <RadialBarChart
           width={730}
           height={250}
           innerRadius="80%"
-          data={[{ name: 'user', value: data.score }]}
+          data={[{ name: 'user', value: score }]}
           startAngle={-270}
           endAngle={90}
         >
           <PolarAngleAxis
             type="number"
-            domain={[0, 1]}
+            domain={[0, 100]}
             angleAxisId={0}
             tick={false}
           />
@@ -35,9 +43,7 @@ function ChartUser({ data }) {
         </RadialBarChart>
       </ResponsiveContainer>
       <p className="activity__objectif-score">
-        <span className="activity__objectif-score-percent">
-          {data.data.score * 100}%
-        </span>
+        <span className="activity__objectif-score-percent">{score}%</span>
         <br />
         de votre
         <br />
