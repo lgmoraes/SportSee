@@ -19,7 +19,7 @@ function ChartPerformance({ data }) {
   return performances === null ? null : (
     <ResponsiveContainer width="99%" height={200}>
       <RadarChart data={performances} cx={'50%'} cy={'50%'} outerRadius={'70%'}>
-        <PolarGrid strokeWidth={2} radialLines={false} />
+        <PolarGrid strokeWidth={1.2} radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"
           tickSize={15}
