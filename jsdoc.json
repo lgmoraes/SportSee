@@ -1,0 +1,18 @@
+{
+  "tags": {
+    "allowUnknownTags": ["optional"]
+  },
+  "source": {
+    "include": ["src/"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/"
+  }
+}
