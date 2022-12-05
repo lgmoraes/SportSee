@@ -16,6 +16,19 @@ function ChartAverageSessions({ data }) {
         data={sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
+        <defs>
+          <linearGradient
+            id="colorUv"
+            x1="0"
+            y1="0"
+            x2="100%"
+            y2="0"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stopColor="rgba(255, 255, 255, 0.2)" />
+            <stop offset="1" stopColor="rgba(255, 255, 255, 1)" />
+          </linearGradient>
+        </defs>
         <XAxis
           tick={{ fill: 'rgba(255,255,255,0.5)', fontWeight: 'bold' }}
           tickLine={0}
@@ -25,13 +38,19 @@ function ChartAverageSessions({ data }) {
         <Tooltip
           content={LineChartTooltip}
           wrapperStyle={{ outline: 'none' }}
+          cursor={false}
         />
         <Line
           type="natural"
           dataKey="sessionLength"
-          stroke="white"
+          stroke="url(#colorUv)"
           strokeWidth={2}
           dot={false}
+          activeDot={{
+            fill: 'white',
+            stroke: 'rgba(255, 255, 255, 0.2)',
+            strokeWidth: 8,
+          }}
         />
       </LineChart>
     </ResponsiveContainer>
