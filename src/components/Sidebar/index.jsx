@@ -1,3 +1,6 @@
+/**
+ * The bar on the left side of the screen, containing buttons and copyright
+ */
 function Sidebar() {
   return (
     <div className="sidebar">

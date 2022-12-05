@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react'
 
+/**
+ * Show caloric expenditure with icons
+ * @param { Promise } data Caloric expenditure of
+ * the user (calories, protein, carbohydrate, lipids)
+ */
 function Expenses({ data }) {
   const [expenses, setExpenses] = useState(null)
 

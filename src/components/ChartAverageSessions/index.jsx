@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
+/**
+ * Render a graph tracking the user's activity time during their week
+ * @param {Promise} data Returns the length of user sessions
+ */
 function ChartAverageSessions({ data }) {
   const [sessions, setSessions] = useState(null)
 
@@ -57,6 +61,10 @@ function ChartAverageSessions({ data }) {
   )
 }
 
+/**
+ * Custom renderer for the LineChart tooltip
+ * Params are send by recharts
+ */
 const LineChartTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (

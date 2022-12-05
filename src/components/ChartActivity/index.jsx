@@ -10,6 +10,10 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
+/**
+ * Render the user's daily activity graph
+ * @param {Promise} data Contains weight and calorie burn tracking
+ */
 function ChartActivity({ data }) {
   const [sessions, setSessions] = useState(null)
 
@@ -57,6 +61,10 @@ function ChartActivity({ data }) {
   )
 }
 
+/**
+ * Custom renderer for the BarChart tooltip
+ * Params are send by recharts
+ */
 const BarChartTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (

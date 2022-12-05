@@ -6,6 +6,9 @@ import Expenses from '../Expenses'
 
 import api from '../../api/Api'
 
+/**
+ * Render all charts
+ */
 function Activity() {
   return (
     <section className="activity">

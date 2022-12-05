@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+/**
+ * Error Page
+ */
 function Error404() {
   useEffect(() => {
     document.title = 'Erreur 404'

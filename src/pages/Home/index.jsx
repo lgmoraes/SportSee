@@ -5,6 +5,9 @@ import Activity from '../../components/Activity'
 
 import api from '../../api/Api'
 
+/**
+ * Root element of the app
+ */
 function Home() {
   useEffect(() => {
     document.title = 'SportSee'

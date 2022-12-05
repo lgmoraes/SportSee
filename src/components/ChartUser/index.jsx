@@ -6,6 +6,11 @@ import {
   PolarAngleAxis,
 } from 'recharts'
 
+/**
+ * Render a radial bar chart, showing the
+ * goal completion percentage of the user
+ * @param { Promise } data Percentage completion as Integer
+ */
 function ChartUser({ data }) {
   const [score, setScore] = useState(null)
 

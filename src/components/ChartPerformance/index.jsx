@@ -7,6 +7,11 @@ import {
   PolarAngleAxis,
 } from 'recharts'
 
+/**
+ * Render a radar graph, showing user performances
+ * @param {Promise} data Contain performance indices (cardio, energy, endurance,
+ * strength, speed, intensity)
+ */
 function ChartPerformance({ data }) {
   const [performances, setPerformances] = useState(null)
 

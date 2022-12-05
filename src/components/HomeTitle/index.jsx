@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
 
+/**
+ * The title of the page that welcomes the user with a greeting
+ * @param { Promise } data Contain the name of the user
+ */
 function HomeTitle({ data }) {
   const [user, setUser] = useState(null)
 
