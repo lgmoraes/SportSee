@@ -26,7 +26,7 @@ function ChartPerformance({ data }) {
           tick={{
             fill: 'white',
             fontSize: 12,
-            fontWeight: 'bold',
+            fontWeight: '500',
           }}
         />
         <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />

@@ -30,7 +30,7 @@ function ChartAverageSessions({ data }) {
           </linearGradient>
         </defs>
         <XAxis
-          tick={{ fill: 'rgba(255,255,255,0.5)', fontWeight: 'bold' }}
+          tick={{ fill: 'rgba(255,255,255,0.5)', fontWeight: '500' }}
           tickLine={0}
           axisLine={false}
           dataKey="day"
