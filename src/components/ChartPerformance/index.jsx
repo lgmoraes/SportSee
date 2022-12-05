@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import {
   ResponsiveContainer,
   RadarChart,
@@ -38,6 +39,10 @@ function ChartPerformance({ data }) {
       </RadarChart>
     </ResponsiveContainer>
   )
+}
+
+ChartPerformance.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default ChartPerformance

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import {
   BarChart,
   Bar,
@@ -76,6 +77,10 @@ const BarChartTooltip = ({ active, payload }) => {
   }
 
   return null
+}
+
+ChartActivity.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default ChartActivity

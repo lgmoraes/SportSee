@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import {
   ResponsiveContainer,
   RadialBarChart,
@@ -57,6 +58,10 @@ function ChartUser({ data }) {
       <p className="activity__objectif-title">Score</p>
     </React.Fragment>
   )
+}
+
+ChartUser.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default ChartUser

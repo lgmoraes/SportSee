@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 /**
@@ -75,6 +76,10 @@ const LineChartTooltip = ({ active, payload }) => {
   }
 
   return null
+}
+
+ChartAverageSessions.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default ChartAverageSessions

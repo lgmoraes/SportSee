@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * The title of the page that welcomes the user with a greeting
@@ -22,6 +23,10 @@ function HomeTitle({ data }) {
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </div>
   )
+}
+
+HomeTitle.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default HomeTitle

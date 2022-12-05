@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Show caloric expenditure with icons
@@ -46,6 +47,10 @@ function Expenses({ data }) {
       </div>
     </section>
   )
+}
+
+Expenses.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default Expenses
