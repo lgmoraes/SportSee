@@ -29,7 +29,7 @@ function ChartActivity({ data }) {
         data={sessions}
         barSize={7}
         margin={{
-          top: 5,
+          top: 30,
           right: 30,
           left: 20,
           bottom: 5,

@@ -11,7 +11,7 @@ function ChartAverageSessions({ data }) {
   })
 
   return sessions === null ? null : (
-    <ResponsiveContainer width="99%" height={260}>
+    <ResponsiveContainer width="99%" height={180}>
       <LineChart
         data={sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}

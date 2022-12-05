@@ -11,6 +11,9 @@
     flex-direction: column;
     flex-grow: 1;
   }
+  &__activity {
+    position: relative;
+  }
   &__graphsDown {
     margin-top: $activity-flexGap;
 
@@ -34,9 +37,26 @@
   }
   &__averageSessions {
     background-color: red;
+    align-items: flex-end;
   }
   &__performance {
     background-color: #282d30;
+  }
+  &__activity-title, &__averageSessions-title {
+    line-height: 24px;
+    margin: 0;
+    margin-right: 2em;
+
+    color: $color-primary;
+    font-size: 15px;
+    font-weight: bold;
+
+    position: absolute;
+    top: 2em;
+    left: 2em;
+  }
+  &__averageSessions-title {
+    color: rgba($color: white, $alpha: 0.5)
   }
   &__barChartTooltip {
     line-height: 24px;

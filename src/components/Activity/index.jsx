@@ -10,9 +10,15 @@ function Activity() {
   return (
     <section className="activity">
       <div className="activity__graphs">
-        <ChartActivity data={api.getActivity()} />
+        <div className="activity__activity">
+          <p className="activity__activity-title">Activité quotidienne</p>
+          <ChartActivity data={api.getActivity()} />
+        </div>
         <div className="activity__graphsDown">
           <div className="activity__averageSessions">
+            <p className="activity__averageSessions-title">
+              Durée moyenne des sessions
+            </p>
             <ChartAverageSessions data={api.getAverageSessions()} />
           </div>
           <div className="activity__performance">
