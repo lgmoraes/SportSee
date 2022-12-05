@@ -112,4 +112,14 @@
     top: 1.2em;
     left: 1.2em;
   }
+
+  @include media-breakpoint-down(md) {
+    margin-top: 2em;
+    flex-direction: column-reverse;
+  }
+  @include media-breakpoint-down(sm) {
+    &__graphsDown {
+      flex-direction: column;
+    }
+  }
 }

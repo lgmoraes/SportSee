@@ -12,4 +12,11 @@
   &__name {
     color: $color-secondary;
   }
+
+  @include media-breakpoint-down(lg) {
+    &__content {
+      padding: 0 40px;
+      padding-top: 25px;
+    }
+  }
 }

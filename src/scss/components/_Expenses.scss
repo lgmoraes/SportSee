@@ -22,19 +22,19 @@
     background: grey center no-repeat;
   }
   &__calories &__card-icon {
-    background-color: rgba($color: #FF0000, $alpha: 0.07);
+    background-color: rgba($color: #ff0000, $alpha: 0.07);
     background-image: url(../../assets/flame.svg);
   }
   &__proteines &__card-icon {
-    background-color: rgba($color: #4AB8FF, $alpha: 0.1);
+    background-color: rgba($color: #4ab8ff, $alpha: 0.1);
     background-image: url(../../assets/meat.svg);
   }
   &__glucides &__card-icon {
-    background-color: rgba($color: #FDCC0C, $alpha: 0.1);
+    background-color: rgba($color: #fdcc0c, $alpha: 0.1);
     background-image: url(../../assets/apple.svg);
   }
   &__lipides &__card-icon {
-    background-color: rgba($color: #FD5181, $alpha: 0.1);
+    background-color: rgba($color: #fd5181, $alpha: 0.1);
     background-image: url(../../assets/cheeseburger.svg);
   }
   &__card-layout {
@@ -56,5 +56,21 @@
     color: #74798c;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__card {
+      width: 170px;
+      padding-left: 0;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    &__card {
+      height: 48px;
+    }
   }
 }

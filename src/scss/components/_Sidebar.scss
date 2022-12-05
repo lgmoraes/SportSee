@@ -57,4 +57,22 @@
     right: 0;
     bottom: 60px;
   }
+
+  @include media-breakpoint-down(sm) {
+    width: 90px;
+
+    &__btns {
+      position: fixed;
+      top: 120px;
+      bottom: unset;
+    }
+    &__copyright {
+      width: 90px;
+      line-height: 90px;
+      
+      position: fixed;
+      right: unset;
+      bottom: 3em;
+    }
+  }
 }
