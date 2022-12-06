@@ -12,7 +12,7 @@ root.render(
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/:userId" element={<Home />}></Route>
         <Route path="*" element={<Error404 />}></Route>
       </Routes>
     </Router>

@@ -1,5 +1,4 @@
 const baseUrl = 'http://localhost:3000'
-const userId = '18'
 
 /**
  * Allow to send requests to SportSee REST API
@@ -7,9 +6,10 @@ const userId = '18'
 const api = {
   /**
    * Returns name and age of the user
+   * @param { Number } userId
    * @return { Promise }
    */
-  getUser: async function () {
+  getUser: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}`)
       .then((res) => res.json())
       .then((json) => json.data.userInfos)
@@ -17,9 +17,10 @@ const api = {
   /**
    * Returns the activity follow-up,
    * contains the evolution of the weight as well as the calories burned
+   * @param { Number } userId
    * @return { Promise }
    */
-  getActivity: async function () {
+  getActivity: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}/activity`)
       .then((res) => res.json())
       .then((json) => json.data.sessions)
@@ -33,9 +34,10 @@ const api = {
   },
   /**
    * Returns uptime tracking (duration of sessions)
+   * @param { Number } userId
    * @return { Promise }
    */
-  getAverageSessions: async function () {
+  getAverageSessions: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}/average-sessions`)
       .then((res) => res.json())
       .then((json) => json.data.sessions)
@@ -50,9 +52,10 @@ const api = {
   /**
    * Returns performance indices (cardio, energy, endurance,
    * strength, speed, intensity)
+   * @param { Number } userId
    * @return { Promise }
    */
-  getPerformance: async function () {
+  getPerformance: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}/performance`)
       .then((res) => res.json())
       .then((json) =>
@@ -78,9 +81,10 @@ const api = {
   },
   /**
    * Returns the goal completion percentage
+   * @param { Number } userId
    * @return { Promise }
    */
-  getScore: async function () {
+  getScore: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}`)
       .then((res) => res.json())
       .then((json) => json.data.score * 100)
@@ -88,9 +92,10 @@ const api = {
   /**
    * Returns the caloric expenditure of
    * the user (calories, protein, carbohydrate, lipids)
+   * @param { Number } userId
    * @return { Promise }
    */
-  getExpenses: async function () {
+  getExpenses: async function (userId) {
     return fetch(`${baseUrl}/user/${userId}`)
       .then((res) => res.json())
       .then((json) => json.data.keyData)

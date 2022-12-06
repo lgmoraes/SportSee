@@ -9,30 +9,30 @@ import api from '../../api/Api'
 /**
  * Render all charts
  */
-function Activity() {
+function Activity({ userId }) {
   return (
     <section className="activity">
       <div className="activity__graphs">
         <div className="activity__activity">
           <p className="activity__activity-title">Activité quotidienne</p>
-          <ChartActivity data={api.getActivity()} />
+          <ChartActivity data={api.getActivity(userId)} />
         </div>
         <div className="activity__graphsDown">
           <div className="activity__averageSessions">
             <p className="activity__averageSessions-title">
               Durée moyenne des sessions
             </p>
-            <ChartAverageSessions data={api.getAverageSessions()} />
+            <ChartAverageSessions data={api.getAverageSessions(userId)} />
           </div>
           <div className="activity__performance">
-            <ChartPerformance data={api.getPerformance()} />
+            <ChartPerformance data={api.getPerformance(userId)} />
           </div>
           <div className="activity__objectif">
-            <ChartUser data={api.getScore()} />
+            <ChartUser data={api.getScore(userId)} />
           </div>
         </div>
       </div>
-      <Expenses data={api.getExpenses()} />
+      <Expenses data={api.getExpenses(userId)} />
     </section>
   )
 }

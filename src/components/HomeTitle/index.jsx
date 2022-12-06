@@ -11,7 +11,6 @@ function HomeTitle({ data }) {
   useEffect(() => {
     data.then((res) => {
       setUser(res)
-      console.log(res)
     })
   })
 
