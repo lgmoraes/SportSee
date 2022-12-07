@@ -1,4 +1,32 @@
+import mock_user from '../api/mocks/user.json'
+import mock_activity from '../api/mocks/activity.json'
+import mock_averageSessions from '../api/mocks/average-sessions.json'
+import mock_performance from '../api/mocks/performance.json'
+
 const baseUrl = 'http://localhost:3000'
+const USE_MOCKED_DATA = false
+
+const env = USE_MOCKED_DATA ? 'mock' : 'real'
+
+const fetchData = {
+  user: {
+    real: (id) => fetch(`${baseUrl}/user/${id}`),
+    mock: () => Promise.resolve(new Response(JSON.stringify(mock_user))),
+  },
+  activity: {
+    real: (id) => fetch(`${baseUrl}/user/${id}/activity`),
+    mock: () => Promise.resolve(new Response(JSON.stringify(mock_activity))),
+  },
+  averageSessions: {
+    real: (id) => fetch(`${baseUrl}/user/${id}/average-sessions`),
+    mock: () =>
+      Promise.resolve(new Response(JSON.stringify(mock_averageSessions))),
+  },
+  performance: {
+    real: (id) => fetch(`${baseUrl}/user/${id}/performance`),
+    mock: () => Promise.resolve(new Response(JSON.stringify(mock_performance))),
+  },
+}
 
 /**
  * Allow to send requests to SportSee REST API
@@ -10,7 +38,7 @@ const api = {
    * @return { Promise }
    */
   getUser: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}`)
+    return fetchData.user[env](userId)
       .then((res) => res.json())
       .then((json) => json.data.userInfos)
   },
@@ -21,7 +49,7 @@ const api = {
    * @return { Promise }
    */
   getActivity: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}/activity`)
+    return fetchData.activity[env](userId)
       .then((res) => res.json())
       .then((json) => json.data.sessions)
       .then((sessions) =>
@@ -38,7 +66,7 @@ const api = {
    * @return { Promise }
    */
   getAverageSessions: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}/average-sessions`)
+    return fetchData.averageSessions[env](userId)
       .then((res) => res.json())
       .then((json) => json.data.sessions)
       .then((sessions) =>
@@ -56,7 +84,7 @@ const api = {
    * @return { Promise }
    */
   getPerformance: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}/performance`)
+    return fetchData.performance[env](userId)
       .then((res) => res.json())
       .then((json) =>
         json.data.data
@@ -85,7 +113,7 @@ const api = {
    * @return { Promise }
    */
   getScore: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}`)
+    return fetchData.user[env](userId)
       .then((res) => res.json())
       .then((json) => json.data.score * 100)
   },
@@ -96,7 +124,7 @@ const api = {
    * @return { Promise }
    */
   getExpenses: async function (userId) {
-    return fetch(`${baseUrl}/user/${userId}`)
+    return fetchData.user[env](userId)
       .then((res) => res.json())
       .then((json) => json.data.keyData)
       .then((keyData) => {
