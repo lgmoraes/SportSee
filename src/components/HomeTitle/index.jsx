@@ -1,20 +1,11 @@
-import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 /**
  * The title of the page that welcomes the user with a greeting
- * @param { Promise } data Contain the name of the user
+ * @param { Object } user Contain the name of the user
  */
-function HomeTitle({ data }) {
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    data.then((res) => {
-      setUser(res)
-    })
-  })
-
-  return user === null ? null : (
+function HomeTitle({ user }) {
+  return (
     <div className="home__title">
       <h1>
         Bonjour <span className="home__name">{user.firstName}</span>
@@ -25,7 +16,7 @@ function HomeTitle({ data }) {
 }
 
 HomeTitle.propTypes = {
-  data: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 }
 
 export default HomeTitle
