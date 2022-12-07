@@ -12,6 +12,10 @@
   &__name {
     color: $color-secondary;
   }
+  &__errorMessage {
+    margin: 4em 2em;
+    text-align: center;
+  }
 
   @include media-breakpoint-down(lg) {
     &__content {

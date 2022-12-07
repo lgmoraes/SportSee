@@ -16,7 +16,13 @@ function Home() {
     document.title = 'SportSee'
   })
 
-  return (
+  return isNaN(Number(userId)) ? (
+    <div>
+      <p className="home__errorMessage">
+        {userId} n'est pas un id utilisateur valide !
+      </p>
+    </div>
+  ) : (
     <div className="home">
       <Sidebar />
       <main className="home__content">
