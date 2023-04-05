@@ -4,7 +4,7 @@ import mock_averageSessions from '../api/mocks/average-sessions.json'
 import mock_performance from '../api/mocks/performance.json'
 
 const baseUrl = 'http://localhost:3000'
-const USE_MOCKED_DATA = false
+const USE_MOCKED_DATA = true
 
 const env = USE_MOCKED_DATA ? 'mock' : 'real'
 
