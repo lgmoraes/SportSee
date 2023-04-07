@@ -1,20 +1,21 @@
 import { Link, NavLink } from 'react-router-dom'
+import { BASENAME } from '../..'
 
 function Header() {
   return (
     <header className="header">
-      <Link to="/" className="header__logo"></Link>
+      <Link to={BASENAME + '/'} className="header__logo"></Link>
       <nav>
         <NavLink
           className={({ isActive }) => (isActive ? 'active' : undefined)}
-          to="/"
+          to={BASENAME + '/'}
           end
         >
           Accueil
         </NavLink>
-        <NavLink to="/">Profil</NavLink>
-        <NavLink to="/">Réglage</NavLink>
-        <NavLink to="/">Communauté</NavLink>
+        <NavLink to={BASENAME + '/'}>Profil</NavLink>
+        <NavLink to={BASENAME + '/'}>Réglage</NavLink>
+        <NavLink to={BASENAME + '/'}>Communauté</NavLink>
       </nav>
     </header>
   )
